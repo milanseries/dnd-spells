@@ -1,0 +1,14 @@
+/* loading-spinner.css */
+.loading-spinner-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  min-height: 100vh;
+}
+
+.loading-spinner-box {
+  height: 680px;
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+}

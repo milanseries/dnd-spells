@@ -1,26 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Box } from '@mui/material'
+import { Link, Route, Routes, useLocation } from 'react-router-dom'
+import './App.css'
+import FavoriteSpellsPage from './pages/FavoriteSpellsPage'
+import HomePage from './pages/HomePage'
+import SpellDetailPage from './pages/SpellDetailPage'
 
 function App() {
+  const location = useLocation()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <React.Fragment>
+      <Box sx={{ padding: '26px', backgroundColor: '#EDF4FF' }}>
+        <Box sx={{ textAlign: 'center' }}>
+          <nav>
+            <Link
+              to="/"
+              style={{
+                fontSize: '26px',
+                fontWeight: '600',
+                padding: '4px',
+                color: location.pathname === '/' ? 'blue' : '',
+                textDecoration: 'none',
+              }}
+            >
+              Home
+            </Link>{' '}
+            <Link
+              to="/favorites"
+              style={{
+                fontSize: '26px',
+                fontWeight: '600',
+                padding: '4px',
+                color: location.pathname === '/favorites' ? 'blue' : '',
+                textDecoration: 'none',
+              }}
+            >
+              Favorites
+            </Link>
+          </nav>
+        </Box>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="spells/:index" element={<SpellDetailPage />} />
+          <Route path="/favorites" element={<FavoriteSpellsPage />} />
+        </Routes>
+      </Box>
+    </React.Fragment>
+  )
 }
 
-export default App;
+export default App

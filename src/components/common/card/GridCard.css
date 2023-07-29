@@ -1,0 +1,15 @@
+/* Your CSS file or style tag */
+.grid-card {
+  padding: 10px;
+  border: 1px solid black;
+  background: white;
+  color: white;
+  transition: box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.grid-card:hover {
+  background-color: #edf4ff;
+  box-shadow: inset 0 0 0 2px #a4c8ff;
+  border: none;
+}
