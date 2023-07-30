@@ -1,9 +1,14 @@
-import DisplaySpells from '../components/features/spells/DisplaySpells'
+import LoadingSpinner from '../components/common/loader/LoadingSpinner'
+import SpellList from '../components/features/spell/SpellList'
+import { useSpells } from '../hooks/useSpells'
 
 const HomePage = () => {
+  const spellsQuery = useSpells()
   return (
     <>
-      <DisplaySpells />
+      {spellsQuery.isError && <div> Error...</div>}
+      {spellsQuery.isLoading && <LoadingSpinner />}
+      {spellsQuery.isSuccess && <SpellList spells={spellsQuery.data} />}
     </>
   )
 }
