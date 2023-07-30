@@ -1,0 +1,41 @@
+/* SpellDetails.css */
+
+.spell-card {
+  min-width: 300px !important;
+  background-color: #f1f1f1 !important;
+  border: 1px solid #ddd !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  padding: 16px !important;
+}
+
+.spell-title {
+  color: #333 !important;
+  font-size: 24px !important;
+  font-weight: bold !important;
+  margin-bottom: 8px !important;
+}
+
+.spell-level {
+  color: #666 !important;
+}
+
+.spell-desc {
+  color: #444 !important;
+  margin-bottom: 16px !important;
+}
+
+.spell-list {
+  color: #666 !important;
+  margin-bottom: 16px !important;
+}
+
+.spell-higher-level {
+  color: #666 !important;
+  margin-bottom: 16px !important;
+}
+
+.spell-damage {
+  color: #ff5722 !important;
+  margin-bottom: 8px !important;
+}
