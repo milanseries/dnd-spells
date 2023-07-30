@@ -1,10 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
-import spellsSlice from './features/spellsSlice'
+import spellReducer from './features/spellSlice'
+import spellMiddleware from './features/spellMiddleware'
 
 export const store = configureStore({
   reducer: {
-    spells: spellsSlice,
+    spells: spellReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(spellMiddleware),
 })
 
 export type RootState = ReturnType<typeof store.getState>
