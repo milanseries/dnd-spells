@@ -3,31 +3,31 @@
 import { Middleware } from '@reduxjs/toolkit'
 import { spellSlice } from './spellSlice'
 
+// eslint-disable-next-line prettier/prettier
 type SpellsAction = ReturnType<
-  typeof spellSlice.actions[keyof typeof spellSlice.actions]
+  (typeof spellSlice.actions)[keyof typeof spellSlice.actions]
 >
 
-const spellMiddleware: Middleware =
-  (store) => (next) => (action: SpellsAction) => {
-    if (action.type === spellSlice.actions.setItemToFavorite.type) {
-      window.localStorage.setItem(
-        'favoritedSpells',
-        JSON.stringify(action.payload)
-      )
-    }
-
-    if (action.type === spellSlice.actions.removeItemFromFavorite.type) {
-      window.localStorage.setItem(
-        'favoritedSpells',
-        JSON.stringify(action.payload)
-      )
-    }
-
-    if (action.type === spellSlice.actions.removeFavorites.type) {
-      localStorage.removeItem('favoritedSpells')
-    }
-
-    return next(action)
+const spellMiddleware: Middleware = () => (next) => (action: SpellsAction) => {
+  if (action.type === spellSlice.actions.setItemToFavorite.type) {
+    window.localStorage.setItem(
+      'favoritedSpells',
+      JSON.stringify(action.payload)
+    )
   }
+
+  if (action.type === spellSlice.actions.removeItemFromFavorite.type) {
+    window.localStorage.setItem(
+      'favoritedSpells',
+      JSON.stringify(action.payload)
+    )
+  }
+
+  if (action.type === spellSlice.actions.removeFavorites.type) {
+    localStorage.removeItem('favoritedSpells')
+  }
+
+  return next(action)
+}
 
 export default spellMiddleware

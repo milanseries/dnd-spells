@@ -20,7 +20,10 @@ const SimplePaginator: React.FC<SimplePaginatorProps> = ({
   currentPage,
   onPageChange,
 }) => {
-  function handlePageChange(event: React.ChangeEvent<unknown>, page: number) {
+  function handlePageChange(
+    event: React.ChangeEvent<unknown>,
+    page: number
+  ): void {
     onPageChange(page)
   }
 

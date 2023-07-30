@@ -10,7 +10,7 @@ export const spellApi = {
    * @throws {Error} If there is an issue with the HTTP request or the response structure is invalid.
    */
   fetchAllSpells: async (): Promise<ISpellList> => {
-    return await normalAxios.get('/spells')
+    return normalAxios.get('/spells')
   },
 
   /**
@@ -22,6 +22,6 @@ export const spellApi = {
    * @throws {Error} If there is an issue with the HTTP request or the response structure is invalid.
    */
   fetchSpellByIndex: async (index: string): Promise<ISpell> => {
-    return await normalAxios.get(`/spells/${index}`)
+    return normalAxios.get(`/spells/${index}`)
   },
 }

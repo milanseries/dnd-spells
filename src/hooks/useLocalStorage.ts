@@ -8,7 +8,10 @@ import React from 'react'
  * @param {T} initialValue - The initial value of the data.
  * @returns {[T, React.Dispatch<React.SetStateAction<T>>]} A tuple containing the current state and a function to update the state.
  */
-export const useLocalStorage = <T>(key: string, initialValue: T) => {
+export const useLocalStorage = <T>(
+  key: string,
+  initialValue: T
+): readonly [T, React.Dispatch<React.SetStateAction<T>>] => {
   const [state, setState] = React.useState<T>(() => {
     const storedValue = localStorage.getItem(key)
     return storedValue ? (JSON.parse(storedValue) as T) : initialValue

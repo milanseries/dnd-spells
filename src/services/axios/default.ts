@@ -20,7 +20,7 @@ normalAxios.interceptors.request.use(
   (config) => {
     return config
   },
-  async (error) => await Promise.reject(error)
+  async (error) => Promise.reject(error)
 )
 
 /**
@@ -34,7 +34,7 @@ normalAxios.interceptors.response.use(
   (response) => {
     return response.data
   },
-  async (error) => await Promise.reject(error)
+  async (error) => Promise.reject(error)
 )
 
 export { normalAxios }

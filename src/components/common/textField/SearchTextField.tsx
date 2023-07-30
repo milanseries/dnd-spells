@@ -19,12 +19,14 @@ const SearchTextField: React.FC<SearchTextFieldProps> = ({
   searchQuery,
   onSearchChange,
 }) => {
-  function handleSearchChange(event: React.ChangeEvent<HTMLInputElement>) {
+  function handleSearchChange(
+    event: React.ChangeEvent<HTMLInputElement>
+  ): void {
     const query = event.target.value
     onSearchChange(query)
   }
 
-  function handleClearSearch() {
+  function handleClearSearch(): void {
     onSearchChange('')
   }
 

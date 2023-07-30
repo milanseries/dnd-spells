@@ -15,7 +15,7 @@ export const useFavorite = <T extends { index: string }>() => {
     []
   )
 
-  function handleFavorite(item: T) {
+  function handleFavorite(item: T): void {
     const isItemFavorited = favoritedItems.some(
       (favItem) => favItem.index === item.index
     )
@@ -30,7 +30,7 @@ export const useFavorite = <T extends { index: string }>() => {
     }
   }
 
-  function clearFavorites() {
+  function clearFavorites(): void {
     setFavoritedItems([])
   }
 

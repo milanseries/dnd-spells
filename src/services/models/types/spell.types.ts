@@ -21,8 +21,8 @@ interface DamageAtLevel {
 
 interface Damage {
   damage_type: DamageType
-  damage_at_slot_level?: DamageAtLevel
-  damage_at_character_level?: DamageAtLevel
+  damage_at_slot_level: DamageAtLevel
+  damage_at_character_level: DamageAtLevel
 }
 
 export interface School {

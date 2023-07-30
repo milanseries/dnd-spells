@@ -10,8 +10,12 @@ import {
 } from '@mui/material'
 
 import './SpellDetail.css'
+import { ISpell } from '../../../services/models/types/spell.types'
 
-const SpellDetail = ({ spell }: any) => {
+interface SpellDetailProps {
+  spell: ISpell
+}
+const SpellDetail: React.FC<SpellDetailProps> = ({ spell }) => {
   const {
     name,
     desc,
@@ -77,15 +81,29 @@ const SpellDetail = ({ spell }: any) => {
               Damage
             </Typography>
             {Object.keys(
-              damage.damage_at_slot_level || damage.damage_at_character_level
-            ).map((level) => (
-              <Typography key={level} variant="body2" className="spell-damage">
-                {`Level ${level}: ${
-                  damage.damage_at_slot_level?.[level] ??
-                  damage.damage_at_character_level?.[level]
-                } ${damage.damage_type.name} damage`}
-              </Typography>
-            ))}
+              damage?.damage_at_slot_level ||
+                damage?.damage_at_character_level ||
+                {}
+            ).map((slotLevel) => {
+              const damageValue =
+                damage.damage_at_slot_level?.[
+                  slotLevel as unknown as keyof typeof damage.damage_at_slot_level
+                ] ??
+                damage.damage_at_character_level?.[
+                  slotLevel as unknown as keyof typeof damage.damage_at_character_level
+                ]
+              return (
+                <Typography
+                  key={slotLevel}
+                  variant="body2"
+                  className="spell-damage"
+                >
+                  {`Level ${slotLevel}: ${damageValue ?? ''} ${
+                    damage.damage_type.name
+                  } damage`}
+                </Typography>
+              )
+            })}
           </>
         )}
       </CardContent>

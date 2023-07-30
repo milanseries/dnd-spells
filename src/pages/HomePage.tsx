@@ -2,7 +2,7 @@ import LoadingSpinner from '../components/common/loader/LoadingSpinner'
 import SpellList from '../components/features/spell/SpellList'
 import { useSpells } from '../hooks/useSpells'
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
   const spellsQuery = useSpells()
   return (
     <>

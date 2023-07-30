@@ -56,7 +56,7 @@ const FavoriteSpellsPage: React.FC = () => {
               >
                 {spell.name}
                 <IconButton
-                  onClick={(e) => {
+                  onClick={(e): void => {
                     e.stopPropagation()
                     e.preventDefault()
                     handleFavorite(spell)

@@ -6,7 +6,7 @@ import FavoriteSpellsPage from './pages/FavoriteSpellsPage'
 import HomePage from './pages/HomePage'
 import SpellDetailPage from './pages/SpellDetailPage'
 
-function App() {
+const App: React.FC = () => {
   const location = useLocation()
 
   return (
