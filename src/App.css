@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+
+/* AwesomeNav.css */
+.navbar {
+  background-color: #1976d2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+}
+
+.navbar-brand {
+  font-size: 26px;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-link {
+  font-size: 26px;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 8px 16px;
+}
+
+.navbar-link.active {
+  background-color: #1565c0;
+  border-radius: 4px;
+}

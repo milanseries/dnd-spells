@@ -11,35 +11,22 @@ function App() {
 
   return (
     <React.Fragment>
-      <Box sx={{ padding: '26px', backgroundColor: '#EDF4FF' }}>
-        <Box sx={{ textAlign: 'center' }}>
-          <nav>
-            <Link
-              to="/"
-              style={{
-                fontSize: '26px',
-                fontWeight: '600',
-                padding: '4px',
-                color: location.pathname === '/' ? 'blue' : '',
-                textDecoration: 'none',
-              }}
-            >
-              Home
-            </Link>{' '}
-            <Link
-              to="/favorites"
-              style={{
-                fontSize: '26px',
-                fontWeight: '600',
-                padding: '4px',
-                color: location.pathname === '/favorites' ? 'blue' : '',
-                textDecoration: 'none',
-              }}
-            >
-              Favorites
-            </Link>
-          </nav>
-        </Box>
+      <nav className="navbar">
+        <div className="navbar-links">
+          <Link
+            to="/"
+            className={`navbar-link ${
+              location.pathname === '/' ? 'active ' : ''
+            }`}
+          >
+            Home
+          </Link>
+          <Link to="/favorites" className="navbar-link">
+            Favorites
+          </Link>
+        </div>
+      </nav>
+      <Box sx={{ padding: '26px' }}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="spells/:index" element={<SpellDetailPage />} />
