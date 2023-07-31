@@ -3,14 +3,7 @@ import { spellApi } from '../services/axios/api/spellApi'
 import { ISpell } from '../services/models/types/spell.types'
 
 export default function useSpell(index: string): UseQueryResult<ISpell> {
-  return useQuery(
-    ['spell', index],
-    async () => spellApi.fetchSpellByIndex(index),
-    {
-      retry: 0,
-      refetchOnMount: false,
-      keepPreviousData: true,
-      refetchOnWindowFocus: false,
-    }
+  return useQuery(['spell', index], async () =>
+    spellApi.fetchSpellByIndex(index)
   )
 }

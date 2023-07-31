@@ -1,6 +1,6 @@
-/* SpellDetails.css */
+/* Spell-detailDetails.css */
 
-.spell-card {
+.spell-detail-card {
   min-width: 300px !important;
   background-color: #f1f1f1 !important;
   border: 1px solid #ddd !important;
@@ -9,33 +9,33 @@
   padding: 16px !important;
 }
 
-.spell-title {
+.spell-detail-title {
   color: #333 !important;
   font-size: 24px !important;
   font-weight: bold !important;
   margin-bottom: 8px !important;
 }
 
-.spell-level {
+.spell-detail-level {
   color: #666 !important;
 }
 
-.spell-desc {
+.spell-detail-desc {
   color: #444 !important;
   margin-bottom: 16px !important;
 }
 
-.spell-list {
+.spell-detail-list {
   color: #666 !important;
   margin-bottom: 16px !important;
 }
 
-.spell-higher-level {
+.spell-detail-higher-level {
   color: #666 !important;
   margin-bottom: 16px !important;
 }
 
-.spell-damage {
+.spell-detail-damage {
   color: #ff5722 !important;
   margin-bottom: 8px !important;
 }

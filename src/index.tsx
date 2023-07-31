@@ -8,8 +8,13 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { store } from './store/store'
+import { defaultQueryOptions } from './config/appConfig'
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: defaultQueryOptions,
+  },
+})
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>

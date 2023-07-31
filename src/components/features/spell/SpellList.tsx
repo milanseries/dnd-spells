@@ -1,8 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Box, Grid, IconButton } from '@mui/material'
-import FavoriteIcon from '@mui/icons-material/Favorite'
-import GridCard from '../../common/card/GridCard'
+import { Box, Grid } from '@mui/material'
 import SimplePaginator, {
   ITEMS_PER_PAGE,
 } from '../../common/pagination/SimplePaginator'
@@ -13,13 +11,21 @@ import {
   ISpellListItem,
 } from '../../../services/models/types/spell.types'
 import { useFavorite } from '../../../hooks/useFavorite'
+import { APP_STORAGE_KEY } from '../../../config/constants/app.constant'
+import SpellCard from '../../common/card/SpellCard'
 
 interface SpellsListProps {
   spells: ISpellList
 }
+
 const SpellList: React.FC<SpellsListProps> = ({ spells }) => {
-  const { favoritedItems, handleFavorite } = useFavorite<ISpellListItem>()
-  const [currentPage, setCurrentPage] = useLocalStorage('currentPage', 1)
+  const { favoritedItems, handleFavorite } = useFavorite<ISpellListItem>({
+    key: APP_STORAGE_KEY.DND_FAVORITE_SPELLS,
+  })
+  const [currentPage, setCurrentPage] = useLocalStorage(
+    APP_STORAGE_KEY.DND_CURRENT_PAGE,
+    1
+  )
   const [searchQuery, setSearchQuery] = React.useState('')
 
   function handleSearchChange(query: string) {
@@ -42,62 +48,39 @@ const SpellList: React.FC<SpellsListProps> = ({ spells }) => {
 
   return (
     <>
-      <Box sx={{ flexGrow: 1 }}>
-        <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center' }}>
-          <SearchTextField
-            searchQuery={searchQuery}
-            onSearchChange={handleSearchChange}
-          />
-        </Box>
-        <Grid
-          container
-          spacing={{ xs: 2, md: 2, sm: 2 }}
-          columns={{ xs: 2, sm: 8, md: 12 }}
-        >
-          {paginatedSpells?.map((spell) => (
-            <GridCard key={spell.index}>
-              <Link
-                to={`/spells/${spell.index}`}
-                style={{ textDecoration: 'none' }}
-              >
-                <Box
-                  sx={{
-                    justifyContent: 'space-between',
-                    display: 'flex',
-                    width: '100%',
-                    alignItems: 'center',
-                    paddingRight: '20px',
-                  }}
-                >
-                  {spell.name}
-                  <IconButton
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      e.preventDefault()
-                      handleFavorite(spell)
-                    }}
-                  >
-                    <FavoriteIcon
-                      sx={{
-                        color: favoritedItems?.some(
-                          (spellFav) => spellFav.index === spell.index
-                        )
-                          ? '#fb97a9'
-                          : 'inherit',
-                      }}
-                    />
-                  </IconButton>
-                </Box>
-              </Link>
-            </GridCard>
-          ))}
-        </Grid>
-        <SimplePaginator
-          totalCount={filteredSpells?.length ?? 1}
-          currentPage={currentPage}
-          onPageChange={handlePageChange}
+      <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center' }}>
+        <SearchTextField
+          searchQuery={searchQuery}
+          onSearchChange={handleSearchChange}
         />
       </Box>
+      <Grid
+        container
+        spacing={{ xs: 2, md: 2, sm: 2 }}
+        columns={{ xs: 2, sm: 8, md: 12 }}
+      >
+        {paginatedSpells?.map((spell) => (
+          <Grid item xs={4} md={3} lg={2} key={spell.index}>
+            <Link
+              to={`/spells/${spell.index}`}
+              style={{ textDecoration: 'none' }}
+            >
+              <SpellCard
+                spell={spell}
+                isFavorited={favoritedItems?.some(
+                  (spellFav) => spellFav.index === spell.index
+                )}
+                handleFavorite={handleFavorite}
+              />
+            </Link>
+          </Grid>
+        ))}
+      </Grid>
+      <SimplePaginator
+        totalCount={filteredSpells?.length ?? 1}
+        currentPage={currentPage}
+        onPageChange={handlePageChange}
+      />
     </>
   )
 }

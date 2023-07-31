@@ -3,6 +3,7 @@ import TextField from '@mui/material/TextField'
 import InputAdornment from '@mui/material/InputAdornment'
 import SearchIcon from '@mui/icons-material/Search'
 import ClearIcon from '@mui/icons-material/Clear'
+import './SearchTextField.css'
 
 /**
  * Represents the props used by the SearchTextField component for handling search functionality.
@@ -32,15 +33,10 @@ const SearchTextField: React.FC<SearchTextFieldProps> = ({
 
   return (
     <TextField
-      sx={{
-        color: 'black',
-        backgroundColor: 'white',
-        mb: '20px',
-        width: '50%',
-      }}
+      className="search-text-field" // Add the custom class name here
       fullWidth
       variant="outlined"
-      placeholder="Search spells...."
+      placeholder="Search spell...."
       value={searchQuery}
       onChange={handleSearchChange}
       InputProps={{

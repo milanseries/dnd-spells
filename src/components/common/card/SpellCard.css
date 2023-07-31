@@ -1,5 +1,5 @@
 /* Your CSS file or style tag */
-.grid-card {
+.spell-card {
   padding: 10px;
   border: 1px solid black;
   background: white;
@@ -11,8 +11,16 @@
   -o-transition: box-shadow 0.3s ease-in-out;
 }
 
-.grid-card:hover {
-  background-color: #edf4ff;
-  box-shadow: inset 0 0 0 2px #a4c8ff;
+.spell-card:hover {
+  background-color: rgb(255, 247, 234);
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.6);
   border: none;
+}
+
+.spell-card-box {
+  justify-content: space-between;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding-right: 20px;
 }
