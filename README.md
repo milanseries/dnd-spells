@@ -37,12 +37,24 @@ Instructions on how to set up the project locally. Include steps like:
 1. Clone the repository: `git clone https://github.com/milanseries/dnd-spells.git`
 2. Navigate to the project directory: `cd repo`
 3. Install dependencies: `yarn install`
-4. Configure any environment variables required: Create a `.env` file and set the necessary variables.
+4. Configure environment variables:
+
+   - Create a .env file in the root of the project.
+   - Add the following line to the .env file:
+
+   ```bash
+     REACT_APP_BASE_API_ENDPOINT=https://www.dnd5eapi.co/api/
+   ```
+
+   - Save the .env file.
+
 5. Start the project: `yarn run dev`
+6. To run test: `yarn run test`
+7. To build production read code: `yarn run build`
 
 ## Demo
 
-Link to a live demo of the project https://dnd-spells-fav.netlify.app/
+Link to a live demo of the project <https://dnd-spells-fav.netlify.app/>
 
 ## API Documentation
 
