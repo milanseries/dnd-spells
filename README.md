@@ -35,7 +35,7 @@ List of tools and libraries used in the project:
 Instructions on how to set up the project locally. Include steps like:
 
 1. Clone the repository: `git clone https://github.com/milanseries/dnd-spells.git`
-2. Navigate to the project directory: `cd repo`
+2. Navigate to the project directory: `cd dnd-spells`
 3. Install dependencies: `yarn install`
 4. Configure environment variables:
 
@@ -58,8 +58,6 @@ Link to a live demo of the project <https://dnd-spells-fav.netlify.app/>
 
 ## API Documentation
 
-If your project involves an API, provide documentation for how to make API calls. Include details such as:
-
 - Base URL: `https://www.dnd5eapi.co/api`
 - Endpoints:
   - `https://www.dnd5eapi.co/api/spells`
@@ -67,7 +65,6 @@ If your project involves an API, provide documentation for how to make API calls
 
 ## Result Response
 
-If applicable, provide examples of the result responses from the API calls made to the project. You can include example JSON responses to illustrate different scenarios.
 
 - `https://www.dnd5eapi.co/api/spells`
 
