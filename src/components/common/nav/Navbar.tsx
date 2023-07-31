@@ -1,6 +1,13 @@
 import { Link, useLocation } from 'react-router-dom'
 import './Navbar.css'
 
+/**
+ * The Navbar component displays navigation links in a navigation bar.
+ * @function Navbar
+ * @param {NavbarProps} props - The props required for the Navbar component.
+ * @param {Array<{ name: string; route: string }>} props.navigators - An array of objects representing the navigation links and their routes.
+ * @returns {JSX.Element} The JSX element representing the Navbar component.
+ */
 interface NavbarProps {
   navigators: { name: string; route: string }[]
 }

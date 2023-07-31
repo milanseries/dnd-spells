@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Box, Grid } from '@mui/material'
+import { Box, Grid, Typography } from '@mui/material'
 import SimplePaginator, {
   ITEMS_PER_PAGE,
 } from '../../common/pagination/SimplePaginator'
@@ -46,6 +46,8 @@ const SpellList: React.FC<SpellsListProps> = ({ spells }) => {
     currentPage * ITEMS_PER_PAGE
   )
 
+  const isSpellsEmpty = !paginatedSpells || paginatedSpells.length === 0
+
   return (
     <>
       <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center' }}>
@@ -54,29 +56,37 @@ const SpellList: React.FC<SpellsListProps> = ({ spells }) => {
           onSearchChange={handleSearchChange}
         />
       </Box>
-      <Grid
-        container
-        spacing={{ xs: 2, md: 2, sm: 2 }}
-        columns={{ xs: 2, sm: 8, md: 12 }}
-      >
-        {paginatedSpells?.map((spell) => (
-          <Grid item xs={4} md={3} lg={2} key={spell.index}>
-            <Link
-              to={`/spells/${spell.index}`}
-              style={{ textDecoration: 'none' }}
-              aria-label="spell-link"
-            >
-              <SpellCard
-                spell={spell}
-                isFavorited={favoritedItems?.some(
-                  (spellFav) => spellFav.index === spell.index
-                )}
-                handleFavorite={handleFavorite}
-              />
-            </Link>
-          </Grid>
-        ))}
-      </Grid>
+      {isSpellsEmpty ? (
+        <Box mb="40px">
+          <Typography variant="h4" align="center">
+            Not found
+          </Typography>
+        </Box>
+      ) : (
+        <Grid
+          container
+          spacing={{ xs: 2, md: 2, sm: 2 }}
+          columns={{ xs: 2, sm: 8, md: 12 }}
+        >
+          {paginatedSpells?.map((spell) => (
+            <Grid item xs={4} md={3} lg={2} key={spell.index}>
+              <Link
+                to={`/spells/${spell.index}`}
+                style={{ textDecoration: 'none' }}
+                aria-label="spell-link"
+              >
+                <SpellCard
+                  spell={spell}
+                  isFavorited={favoritedItems?.some(
+                    (spellFav) => spellFav.index === spell.index
+                  )}
+                  handleFavorite={handleFavorite}
+                />
+              </Link>
+            </Grid>
+          ))}
+        </Grid>
+      )}
       <SimplePaginator
         totalCount={filteredSpells?.length ?? 1}
         currentPage={currentPage}

@@ -29,8 +29,9 @@ jest.doMock('../hooks/useLocalStorage', () => {
   }
 })
 
-const setupHook = (config: FavoriteConfig) =>
-  renderHook(() => useFavorite(config))
+function setupHook(config: FavoriteConfig) {
+  return renderHook(() => useFavorite(config))
+}
 
 describe('useFavorite', () => {
   afterEach(() => {
