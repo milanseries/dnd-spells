@@ -16,7 +16,7 @@ Spells listing of Dungeons and Dragons
 
 ## Project Description
 
-A web to list all the spell for the dnd api where you can favorites and view in favorites routes.
+A website that lists all the spells for the Dungeons & Dragons (D&D) API, allowing users to mark spells as favorites and view them in the favorites page.
 
 ## Tools and Libraries Used
 
