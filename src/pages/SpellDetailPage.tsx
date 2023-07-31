@@ -10,7 +10,6 @@ const SpellDetailPage: React.FC = () => {
 
   return (
     <>
-      {spellQuery.isError && <div> Error...</div>}
       {spellQuery.isLoading && <LoadingSpinner />}
       {spellQuery.isSuccess && <SpellDetail spell={spellQuery.data} />}
     </>

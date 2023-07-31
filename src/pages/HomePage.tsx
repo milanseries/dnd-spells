@@ -6,7 +6,6 @@ const HomePage: React.FC = () => {
   const spellsQuery = useSpells()
   return (
     <>
-      {spellsQuery.isError && <div> Error...</div>}
       {spellsQuery.isLoading && <LoadingSpinner />}
       {spellsQuery.isSuccess && <SpellList spells={spellsQuery.data} />}
     </>

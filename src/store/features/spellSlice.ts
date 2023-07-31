@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { ISpellListItem } from '../../services/models/types/spell.types'
+import { APP_STORAGE_KEY } from '../../config/constants/app.constant'
 
 export interface ISpellState {
   favoritedSpells: ISpellListItem[]
@@ -7,7 +8,9 @@ export interface ISpellState {
 
 const initialState: ISpellState = {
   favoritedSpells:
-    JSON.parse(localStorage.getItem('favoritedSpells') ?? '[]') || [],
+    JSON.parse(
+      localStorage.getItem(APP_STORAGE_KEY.DND_FAVORITE_SPELLS) ?? '[]'
+    ) || [],
 }
 
 export const spellSlice = createSlice({

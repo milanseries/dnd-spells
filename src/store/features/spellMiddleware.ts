@@ -1,6 +1,6 @@
-// Middleware provides a way to intercept dispatched actions before they reach the reducers, allowing you to perform additional logic, side effects, or transformations on the actions.
 // eslint-disable-next-line import/named
 import { Middleware } from '@reduxjs/toolkit'
+import { APP_STORAGE_KEY } from '../../config/constants/app.constant'
 import { spellSlice } from './spellSlice'
 
 // eslint-disable-next-line prettier/prettier
@@ -11,20 +11,20 @@ type SpellsAction = ReturnType<
 const spellMiddleware: Middleware = () => (next) => (action: SpellsAction) => {
   if (action.type === spellSlice.actions.setItemToFavorite.type) {
     window.localStorage.setItem(
-      'favoritedSpells',
+      APP_STORAGE_KEY.DND_FAVORITE_SPELLS,
       JSON.stringify(action.payload)
     )
   }
 
   if (action.type === spellSlice.actions.removeItemFromFavorite.type) {
     window.localStorage.setItem(
-      'favoritedSpells',
+      APP_STORAGE_KEY.DND_FAVORITE_SPELLS,
       JSON.stringify(action.payload)
     )
   }
 
   if (action.type === spellSlice.actions.removeFavorites.type) {
-    localStorage.removeItem('favoritedSpells')
+    localStorage.removeItem(APP_STORAGE_KEY.DND_FAVORITE_SPELLS)
   }
 
   return next(action)
