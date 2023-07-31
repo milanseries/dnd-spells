@@ -1,46 +1,148 @@
-# Getting Started with Create React App
+# Project Name
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Spells listing of Dungeons and Dragons
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Project Name](#project-name)
+  - [Table of Contents](#table-of-contents)
+  - [Project Description](#project-description)
+  - [Tools and Libraries Used](#tools-and-libraries-used)
+  - [Setup](#setup)
+  - [Demo](#demo)
+  - [API Documentation](#api-documentation)
+  - [Result Response](#result-response)
+  - [License](#license)
 
-### `npm start`
+## Project Description
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+A web to list all the spell for the dnd api where you can favorites and view in favorites routes.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Tools and Libraries Used
 
-### `npm test`
+List of tools and libraries used in the project:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Typescript
+- MaterialUI
+- React-Query
+- React-Router
+- Axios
+- ESLint (with Airbnb standard) & Prettier
+- React Testing Library
 
-### `npm run build`
+## Setup
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Instructions on how to set up the project locally. Include steps like:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repository: `git clone https://github.com/milanseries/dnd-spells.git`
+2. Navigate to the project directory: `cd repo`
+3. Install dependencies: `yarn install`
+4. Configure any environment variables required: Create a `.env` file and set the necessary variables.
+5. Start the project: `yarn run dev`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Demo
 
-### `npm run eject`
+Link to a live demo of the project
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## API Documentation
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+If your project involves an API, provide documentation for how to make API calls. Include details such as:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Base URL: `https://www.dnd5eapi.co/api`
+- Endpoints:
+  - `https://www.dnd5eapi.co/api/spells`
+  - `https://www.dnd5eapi.co/api/spells/<index>`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Result Response
 
-## Learn More
+If applicable, provide examples of the result responses from the API calls made to the project. You can include example JSON responses to illustrate different scenarios.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- `https://www.dnd5eapi.co/api/spells`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```json
+{
+  "count": 319,
+  "results": [
+    {
+      "index": "acid-arrow",
+      "name": "Acid Arrow",
+      "url": "/api/spells/acid-arrow"
+    },
+    {
+      "index": "acid-splash",
+      "name": "Acid Splash",
+      "url": "/api/spells/acid-splash"
+    }
+  ]
+}
+```
+
+- `https://www.dnd5eapi.co/api/spells/acid-arrow`
+
+```json
+{
+  "index": "acid-arrow",
+  "name": "Acid Arrow",
+  "desc": [
+    "A shimmering green arrow streaks toward a target within range and bursts in a spray of acid. Make a ranged spell attack against the target. On a hit, the target takes 4d4 acid damage immediately and 2d4 acid damage at the end of its next turn. On a miss, the arrow splashes the target with acid for half as much of the initial damage and no damage at the end of its next turn."
+  ],
+  "higher_level": [
+    "When you cast this spell using a spell slot of 3rd level or higher, the damage (both initial and later) increases by 1d4 for each slot level above 2nd."
+  ],
+  "range": "90 feet",
+  "components": ["V", "S", "M"],
+  "material": "Powdered rhubarb leaf and an adder's stomach.",
+  "ritual": false,
+  "duration": "Instantaneous",
+  "concentration": false,
+  "casting_time": "1 action",
+  "level": 2,
+  "attack_type": "ranged",
+  "damage": {
+    "damage_type": {
+      "index": "acid",
+      "name": "Acid",
+      "url": "/api/damage-types/acid"
+    },
+    "damage_at_slot_level": {
+      "2": "4d4",
+      "3": "5d4",
+      "4": "6d4",
+      "5": "7d4",
+      "6": "8d4",
+      "7": "9d4",
+      "8": "10d4",
+      "9": "11d4"
+    }
+  },
+  "school": {
+    "index": "evocation",
+    "name": "Evocation",
+    "url": "/api/magic-schools/evocation"
+  },
+  "classes": [
+    {
+      "index": "wizard",
+      "name": "Wizard",
+      "url": "/api/classes/wizard"
+    }
+  ],
+  "subclasses": [
+    {
+      "index": "lore",
+      "name": "Lore",
+      "url": "/api/subclasses/lore"
+    },
+    {
+      "index": "land",
+      "name": "Land",
+      "url": "/api/subclasses/land"
+    }
+  ],
+  "url": "/api/spells/acid-arrow"
+}
+```
+
+## License
+
+MIT, Apache 2.0)

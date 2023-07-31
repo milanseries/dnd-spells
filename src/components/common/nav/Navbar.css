@@ -1,0 +1,38 @@
+/* AwesomeNav.css */
+.navbar {
+  background-color: #333; /* Darker background color for the navbar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+}
+
+.navbar-brand {
+  font-size: 24px; /* Slightly reduced font size for the brand */
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-link {
+  font-size: 18px; /* Reduced font size for the links */
+  font-weight: 500; /* Slightly lighter font weight for the links */
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 16px; /* Slightly increased padding for a more comfortable touch */
+  border-radius: 4px;
+  transition: background-color 0.3s ease; /* Smooth transition on background color change */
+}
+
+.navbar-link:hover {
+  background-color: #555; /* Darker background color on hover */
+}
+
+.navbar-link.active {
+  background-color: #1976d2; /* Same as the original active background color */
+}

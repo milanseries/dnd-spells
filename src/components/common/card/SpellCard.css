@@ -1,0 +1,26 @@
+/* Your CSS file or style tag */
+.spell-card {
+  padding: 10px;
+  border: 1px solid black;
+  background: white;
+  transition: box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+  -webkit-transition: box-shadow 0.3s ease-in-out;
+  -moz-transition: box-shadow 0.3s ease-in-out;
+  -ms-transition: box-shadow 0.3s ease-in-out;
+  -o-transition: box-shadow 0.3s ease-in-out;
+}
+
+.spell-card:hover {
+  background-color: rgb(255, 247, 234);
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.6);
+  border: none;
+}
+
+.spell-card-box {
+  justify-content: space-between;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding-right: 20px;
+}

@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Box } from '@mui/material'
+import { Route, Routes } from 'react-router-dom'
+import './App.css'
+import FavoriteSpellsPage from './pages/FavoriteSpellsPage'
+import HomePage from './pages/HomePage'
+import SpellDetailPage from './pages/SpellDetailPage'
+import { ROUTE_PATHS } from './config/constants/routes.constant'
+import Navbar from './components/common/nav/Navbar'
+import ErrorBoundary from './components/common/ErrorBoundary'
 
-function App() {
+const navigators = [
+  { name: 'Home', route: ROUTE_PATHS.HOME },
+  { name: 'Favorites', route: ROUTE_PATHS.FAVORITE_SPELLS },
+]
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <React.Fragment>
+      <Navbar navigators={navigators} />
+      <ErrorBoundary>
+        <Box sx={{ padding: '26px' }}>
+          <Routes>
+            <Route path={ROUTE_PATHS.HOME} element={<HomePage />} />
+            <Route
+              path={ROUTE_PATHS.SPELL_DETAIL}
+              element={<SpellDetailPage />}
+            />
+            <Route
+              path={ROUTE_PATHS.FAVORITE_SPELLS}
+              element={<FavoriteSpellsPage />}
+            />
+          </Routes>
+        </Box>
+      </ErrorBoundary>
+    </React.Fragment>
+  )
 }
 
-export default App;
+export default App
