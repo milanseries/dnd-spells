@@ -42,7 +42,7 @@ Instructions on how to set up the project locally. Include steps like:
 
 ## Demo
 
-Link to a live demo of the project
+Link to a live demo of the project https://dnd-spells-fav.netlify.app/
 
 ## API Documentation
 
