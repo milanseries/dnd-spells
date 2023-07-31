@@ -20,6 +20,7 @@ const SpellCard: React.FC<SpellCardProps> = ({
       <Box className={'spell-card-box'}>
         {spell.name}
         <IconButton
+          aria-label="Favorite"
           onClick={(e) => {
             e.stopPropagation()
             e.preventDefault()

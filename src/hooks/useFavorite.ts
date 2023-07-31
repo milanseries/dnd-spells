@@ -1,6 +1,6 @@
 import { useLocalStorage } from './useLocalStorage'
 
-interface FavoriteConfig {
+export interface FavoriteConfig {
   key: string
 }
 

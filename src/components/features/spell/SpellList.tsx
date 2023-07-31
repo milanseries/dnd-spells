@@ -64,6 +64,7 @@ const SpellList: React.FC<SpellsListProps> = ({ spells }) => {
             <Link
               to={`/spells/${spell.index}`}
               style={{ textDecoration: 'none' }}
+              aria-label="spell-link"
             >
               <SpellCard
                 spell={spell}
