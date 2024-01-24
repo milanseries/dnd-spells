@@ -18,10 +18,10 @@ const Navbar: React.FC<NavbarProps> = ({ navigators }) => {
   return (
     <nav className="navbar">
       <div className="navbar-links">
-        {navigators.map((nav, index) => {
+        {navigators.map((nav) => {
           return (
             <Link
-              key={index}
+              key={nav.name}
               to={nav.route}
               className={`navbar-link ${
                 location.pathname === nav.route ? 'active' : ''

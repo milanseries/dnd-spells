@@ -6,11 +6,30 @@ import { ISpellListItem } from '../services/models/types/spell.types'
 import { APP_STORAGE_KEY } from '../config/constants/app.constant'
 import SpellCard from '../components/common/card/SpellCard'
 
+function Child({ render }: any) {
+  const [meter, setMeter] = React.useState('')
+  return (
+    <div>
+      <button onClick={() => setMeter('here is ti')}>click me</button>
+      {render(meter)}
+    </div>
+  )
+}
+
+function SemiChild({ data }: any) {
+  console.log('data', data)
+  return <div>{data}</div>
+}
+
 const FavoriteSpellsPage: React.FC = () => {
   const { favoritedItems, handleFavorite, clearFavorites } =
     useFavorite<ISpellListItem>({
       key: APP_STORAGE_KEY.DND_FAVORITE_SPELLS,
     })
+
+  function handleParentClick(data: any) {
+    console.log('parent data: ', data)
+  }
 
   return (
     <>
@@ -22,6 +41,7 @@ const FavoriteSpellsPage: React.FC = () => {
         }}
       >
         <Box>
+          <Child render={(meter: any) => <SemiChild data={meter} />} />
           <Typography variant="h5">
             {favoritedItems?.length} Favorites
           </Typography>
